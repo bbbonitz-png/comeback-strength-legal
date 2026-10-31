@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add a friend · Comeback Strength</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F4F0;--surface:#FFFFFF;--fg:#0D141B;--muted:#5A6570;--line:#E2DED7;--accent:#C8102E}
+@media (prefers-color-scheme:dark){:root{--bg:#0D141B;--surface:#16202A;--fg:#F2F0EC;--muted:#9AA6B2;--line:#26323E;--accent:#FF4D5E}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 Barlow,system-ui,-apple-system,sans-serif}
+main{max-width:720px;margin:0 auto;padding:40px 16px 64px}
+.eyebrow{font:700 13px/1 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font:800 44px/1 'Barlow Condensed',sans-serif;text-transform:uppercase;margin:10px 0 12px}
+h2{font:700 22px/1.2 'Barlow Condensed',sans-serif;margin:32px 0 8px}
+.stitch{height:4px;width:96px;margin:0 0 20px;background:repeating-linear-gradient(90deg,var(--accent) 0 10px,transparent 10px 16px)}
+.meta{color:var(--muted);font-size:14px}
+ul{padding-left:20px}li{margin:6px 0}li::marker{color:var(--accent)}
+a{color:var(--accent)}
+nav{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:14px}
+.refs li{font-size:14px;color:var(--muted)}.refs a{word-break:break-word}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:12px 0}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">Comeback Strength</div>
+<h1>Train together</h1><div class="stitch"></div>
+<p>Someone invited you to be friends on Comeback Strength.</p>
+<div class="card" style="text-align:center"><div class="meta">Their friend code</div>
+<div id="code" style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:48px;letter-spacing:8px">······</div></div>
+<p><a id="open" href="comebackstrength://friends" style="display:block;text-align:center;background:var(--accent);color:#fff;padding:14px;border-radius:12px;text-decoration:none;font-weight:600">Open in Comeback Strength</a></p>
+<p class="meta">Don't have the app yet? <a href="https://testflight.apple.com/join/fHkncv4a" rel="noopener">Get it here</a>, sign up, then open Progress → Friends and enter the code.</p>
+<script>
+(function () {
+  var c = (new URLSearchParams(location.search).get('c') || '').toUpperCase().replace(/[^A-HJ-NP-Z2-9]/g, '').slice(0, 6);
+  if (c.length === 6) {
+    document.getElementById('code').textContent = c;
+    document.getElementById('open').href = 'comebackstrength://friends?c=' + c;
+  }
+})();
+</script>
+<nav><a href="index.html">Home</a><a href="science.html">The science</a><a href="terms.html">Terms of Service</a><a href="privacy.html">Privacy Policy</a><a href="mailto:customersupport@comebackstrength.com">Contact</a></nav>
+</main></body>
+</html>
